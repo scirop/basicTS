@@ -1,3 +1,9 @@
+<div>
+
+[![Build Status](https://img.shields.io/travis/scirop/basicTS/master.svg?label=build)](https://travis-ci.org/scirop/basicTS)
+
+</div>
+
 # Basic Time Series function library
 
 This library is built with the basic theories of time series.

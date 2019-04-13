@@ -9,7 +9,7 @@ from tkinter import *
 def tsf(phi, theta):
 
 	def showGreens():
-		ArrLen=scale.get() 
+		ArrLen=scale.get()
 		greensArr.delete('1.0', END)
 		if var1.get() == 1:
 			for i in range(ArrLen):
@@ -82,62 +82,5 @@ def tsf(phi, theta):
 
 	root.mainloop()
 
-
-
-class funcTypes:
-
-	def ImpFindGreens(num, phi, theta):
-		G=0
-		if num==0:
-			G=1
-		else:
-			try:
-				G=-theta[num-1]
-			except IndexError:
-				G=0
-
-			for i in range(num):
-				try:
-					t=phi[i]
-				except IndexError:
-					phi.append(0)
-				G+=phi[i]*funcTypes.ImpFindGreens(num-i-1, phi, theta)
-
-		return G
-
-
-	def ImpFindInverses(num, phi, theta):
-		I = 0
-		if num==0:
-			I=-1
-		else:
-			try:
-				I=phi[num-1]
-			except IndexError:
-				I=0
-
-			for i in range(num):
-				try:
-					t=theta[i]
-				except IndexError:
-					theta.append(0)
-				I+=theta[i]*funcTypes.ImpFindInverses(num-i-1, phi, theta)
-
-		return I
-
-	def ExpFindGreens(num, phi, theta):
-		lam1=0.5*(phi[0]+(phi[0]**2+4*phi[1])**0.5)
-		lam2=0.5*(phi[0]-(phi[0]**2+4*phi[1])**0.5)
-		g1=(lam1-theta[0])/(lam1-lam2)
-		g2=(lam2-theta[0])/(lam2-lam1)
-		return (g1*lam1**num+g2*lam2**num).real
-
-	def ExpFindInverses(num, phi, theta):
-		if num==0:
-			return -1
-		elif num==1:
-			return phi[0]-theta[0]
-		else:
-			return (phi[1]-theta[0]*(theta[0]-phi[0]))*theta[0]**(num-2)
 
 tsf([1.5,3.0,1.7],[0.7,0.6])
