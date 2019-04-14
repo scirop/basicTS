@@ -15,13 +15,12 @@ setup(
     url='https://github.com/scirop/basicTS',
     packages=find_packages(),
     install_requires=[
-        'tkinter',
         'numpy'
     ],
     license='BSD License',
     platforms=["any"],
     classifiers=[
-        'Development Status :: 4 - Beta',
+        'Development Status :: 1 - Beta',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: BSD License',
         'Natural Language :: English',
